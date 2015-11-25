@@ -66,7 +66,10 @@ package
 			var connectionMediaServerString:String;
 			connectionMediaServerString = _paramObj['wowzaServerAndApplication'];
 			nc.connect(connectionMediaServerString);
-			///nc.connect("rtmp://127.0.0.1:1935/rugabuga");
+
+			
+			
+			//nc.connect("rtmp://127.0.0.1:1935/rugabuga");
 			//nc.connect("rtmp://YOUR_SERVER_URL/live");
 			//Tell the NetConnection where the server should invoke callback methods
 			nc.client = this;

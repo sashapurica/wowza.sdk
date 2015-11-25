@@ -38,9 +38,7 @@
 					   $pdo = Database::connect();
 					   $pdo->exec("CREATE TABLE IF NOT EXISTS streams (
 					        id INTEGER PRIMARY KEY, 
-                    		name TEXT, 
-                    		playerUrl TEXT, 
-                    		streamerUrl TEXT,
+                    		name TEXT,
                     		isSecured BOOLEAN)"
 					   );
  
@@ -49,8 +47,8 @@
 						   		echo '<tr>';
 							   	echo '<td>'. $row['id'] . '</td>';
 							   	echo '<td>'. $row['name'] . '</td>';
-							   	echo '<td>'. $row['playerUrl'] . '</td>';
-							   	echo '<td>'. $row['streamerUrl'] . '</td>';
+							   	echo '<td><a href="player/index.php?appName='. $row['name'] . '">View link </a>   </td>';
+							   	echo '<td><a href="webstreamer/encoder.html?appName='. $row['name'] . '">Stream link </a></td>';
 							   	echo '<td>'. $row['isSecured'] . '</td>';
 							   	echo '<td width=250>';
 							   	echo '<a class="btn" href="read.php?id='.$row['id'].'">Read</a>';

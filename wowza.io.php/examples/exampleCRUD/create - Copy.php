@@ -31,8 +31,27 @@
 		//cREATE THE wowza app
 		if ($isSecured) {
 			$output = $wow->createSecuredApplication($name);
+			$wowzaContentURL = 'http://'.$wowzaServerIP.':1935/'.$name.'/mp4:myStream_aac/playlist.m3u8';
+			$wowzaContentPath = $name.'/mp4:myStream_aac';
+			$wowzaSecureToken = 'mySharedSecret';
+			$wowzaTokenPrefix = 'wowzatoken';
+			$wowzaCustomParameter = $wowzaTokenPrefix . "CustomParameter=myParameter";
+			$wowzaSecureTokenStartTime = $wowzaTokenPrefix  ."starttime=". time() ;
+			$wowzaSecureTokenEndTime = $wowzaTokenPrefix  ."endtime=". (time() + (7 * 24 * 60 * 60) );
+			//usar $_SERVER['REMOTE_ADDR'] en vez de la 9.20
+			$viewer_ip = '192.168.9.20';
+			$hashstr = $wowzaContentPath ."?". $viewer_ip ."&". $wowzaSecureToken ."&". $wowzaCustomParameter ."&". $wowzaSecureTokenEndTime ."&". $wowzaSecureTokenStartTime;
+			$hash = hash('sha256', $hashstr ,1);
+			$usableHash=strtr(base64_encode($hash), '+/', '-_');
+			$url = $wowzaContentURL ."?". $wowzaSecureTokenStartTime ."&". $wowzaSecureTokenEndTime ."&". $wowzaCustomParameter ."&".  $wowzaTokenPrefix ."hash=$usableHash";
+			$streamerUrl = "rtmp://".$wowzaServerIP.":1935/".$name;
+			$playerUrl = $url;
+
 		}else{
 			$wow->createNonSecuredApplication($name);
+			$streamerUrl = "rtmp://".$wowzaServerIP.":1935/".$name;
+			$playerUrl = 'http://'.$wowzaServerIP.':1935/'.$name.'/mp4:myStream_aac/playlist.m3u8';
+
 		}
 
 
@@ -40,9 +59,9 @@
 		if ($valid) {
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "INSERT INTO streams (name,isSecured) values(?, ?)";
+			$sql = "INSERT INTO streams (name,isSecured,playerUrl,streamerUrl) values(?, ?, ?,?)";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($name,$isSecured));
+			$q->execute(array($name,$isSecured,$playerUrl,$streamerUrl));
 			Database::disconnect();
 			header("Location: index.php");
 		}

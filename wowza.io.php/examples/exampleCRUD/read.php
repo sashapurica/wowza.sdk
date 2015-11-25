@@ -52,22 +52,6 @@
 					    </div>
 					  </div>
 					  <div class="control-group">
-					    <label class="control-label">Player URL</label>
-					    <div class="controls">
-					      	<label class="checkbox">
-						     	<?php echo $data['playerUrl'];?>
-						    </label>
-					    </div>
-					  </div>
-					  <div class="control-group">
-					    <label class="control-label">Streamer URL</label>
-					    <div class="controls">
-					      	<label class="checkbox">
-						     	<?php echo $data['streamerUrl'];?>
-						    </label>
-					    </div>
-					  </div>
-					  <div class="control-group">
 					    <label class="control-label">Secured</label>
 					    <div class="controls">
 					      	<label class="checkbox">
