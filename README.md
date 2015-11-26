@@ -18,21 +18,29 @@ wowza.io uses the following projects/softwares without having any direct relatio
 
 * Wowza Media Systems "The pro-grade service for live streaming" <https://www.wowza.com/>
 
+* Flowplayer "Video player for the web" <https://flowplayer.org/>
+
 
 ###Functionalities###
-- Create plain application.
+* Create plain live application.
 
-- Create secured application.
+* Create secured live application.
 
-- Delete application.
+* Delete live application.
 
-- Delete all application.
+* Delete all live applications.
 
-- Get applications list.
+* Get live applications list.
 
-- Get application configuration.
+* Get live application configuration.
 
 ###Author###
 Carlos Camacho
 carloscamachoucv@gmail.com
+
+###Donations / Invite me a beer###
+
+This project is taking a lot of my time, so if you think this is worth enough you can just invite me a beer or colaborate with the project, also if you think you need more features you can collaborate and ask for your feature.
+
+[Paypal link](https://www.paypal.me/carlosdcg/5)
 
