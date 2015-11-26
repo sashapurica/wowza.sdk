@@ -7,7 +7,7 @@
 	require 'database.php';
 	require(dirname(dirname(dirname(__FILE__))).'/libs/wowza.php');
 
-	$wowzaServerIP = "127.0.0.1";
+	$wowzaServerIP = "ss.wowza.io";
 	$wow = new Wowza($wowzaServerIP.":8087");
 
 	$id = 0;

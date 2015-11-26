@@ -6,11 +6,6 @@
 
 class Database 
 {
-	private static $dbName = 'xxx' ; 
-	private static $dbHost = 'xxx' ;
-	private static $dbUsername = 'xxx';
-	private static $dbUserPassword = 'xxx';
-	
 	private static $cont  = null;
 	
 	public function __construct() {
