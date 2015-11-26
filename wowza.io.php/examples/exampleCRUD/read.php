@@ -1,4 +1,9 @@
 <?php 
+//    site: www.wowza.io
+//    author: Carlos Camacho
+//    email: carloscamachoucv@gmail.com
+//    created: November 2015
+
 	require 'database.php';
 	$id = null;
 	if ( !empty($_GET['id'])) {

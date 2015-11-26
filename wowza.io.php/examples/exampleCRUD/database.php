@@ -1,4 +1,9 @@
 <?php
+//    site: www.wowza.io
+//    author: Carlos Camacho
+//    email: carloscamachoucv@gmail.com
+//    created: November 2015
+
 class Database 
 {
 	private static $dbName = 'xxx' ; 
