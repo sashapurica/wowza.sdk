@@ -1,5 +1,5 @@
 # wowza.io (mocoloco)
-Wowza.io main repository
+Wowza.io main repository..
 
 ###Multiplatform SDK implementation for wowza APIs###
 wowza.io should work with most wowza standard installations.
