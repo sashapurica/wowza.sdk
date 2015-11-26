@@ -38,7 +38,7 @@
       //usa luego get_ip() y prueba.. si la ip no coincide no engancha.... xD
       $auxIP=get_ip();
       if ($auxIP=="127.0.0.1"){
-        $viewer_ip = "192.168.9.20";
+        $viewer_ip = Conf::CLIENT_TEST_IP;
       }else{
         $viewer_ip = $auxIP;
       }
