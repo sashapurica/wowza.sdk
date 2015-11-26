@@ -10,9 +10,10 @@
 
 
   require(dirname(dirname(dirname(dirname(__FILE__)))).'/libs/wowza.php');
+  include(dirname(dirname(__FILE__)).'/config.php');
 
-  $wowzaServerIP = "192.168.9.20";
-  $wow = new Wowza($wowzaServerIP.":8087");
+  $wowzaServerIP = Conf::STREAMING_SERVER_IP;
+  $wow = new Wowza($wowzaServerIP.":".Conf::STREAMING_SERVER_PORT);
 
   if (isset($_GET['secured']) && $_GET['secured'] == 1 ){
     $isSecured = true;
@@ -35,55 +36,60 @@
       $wowzaSecureTokenEndTime = $wowzaTokenPrefix  ."endtime=". (time() + (7 * 24 * 60 * 60) );
       //usar $_SERVER['REMOTE_ADDR'] en vez de la 9.20
       //usa luego get_ip() y prueba.. si la ip no coincide no engancha.... xD
-      $viewer_ip = "192.168.9.20";
+      $auxIP=get_ip();
+      if ($auxIP=="127.0.0.1"){
+        $viewer_ip = "192.168.9.20";
+      }else{
+        $viewer_ip = $auxIP;
+      }
       $hashstr = $wowzaContentPath ."?". $viewer_ip ."&". $wowzaSecureToken ."&". $wowzaCustomParameter ."&". $wowzaSecureTokenEndTime ."&". $wowzaSecureTokenStartTime;
 
       $hash = hash('sha256', $hashstr ,1);
       $usableHash=strtr(base64_encode($hash), '+/', '-_');
       $url = $wowzaContentURL ."?". $wowzaSecureTokenStartTime ."&". $wowzaSecureTokenEndTime ."&". $wowzaCustomParameter ."&".  $wowzaTokenPrefix ."hash=".$usableHash;
-      $streamerUrl = "rtmp://".$wowzaServerIP.":1935/".$name;
+      $streamerUrl = "rtmp://".$wowzaServerIP.":".Conf::STREAMING_SERVER_DELIVERY_PORT."/".$name;
       $playerUrl = $url;
     }else{
-      $streamerUrl = "rtmp://".$wowzaServerIP.":1935/".$name;
-      $playerUrl = 'http://'.$wowzaServerIP.':1935/'.$name.'/mp4:myStream_aac/playlist.m3u8';
+      $streamerUrl = "rtmp://".$wowzaServerIP.":".Conf::STREAMING_SERVER_DELIVERY_PORT."/".$name;
+      $playerUrl = "http://".$wowzaServerIP.":".Conf::STREAMING_SERVER_DELIVERY_PORT."/".$name."/mp4:myStream_aac/playlist.m3u8";
     }
 
 
 
 
 
-function get_ip() {
+    function get_ip() {
 
-    //Just get the headers if we can or else use the SERVER global
-    if ( function_exists( 'apache_request_headers' ) ) {
+        //Just get the headers if we can or else use the SERVER global
+        if ( function_exists( 'apache_request_headers' ) ) {
 
-      $headers = apache_request_headers();
+          $headers = apache_request_headers();
 
-    } else {
+        } else {
 
-      $headers = $_SERVER;
+          $headers = $_SERVER;
 
-    }
+        }
 
-    //Get the forwarded IP if it exists
-    if ( array_key_exists( 'X-Forwarded-For', $headers ) && filter_var( $headers['X-Forwarded-For'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) {
+        //Get the forwarded IP if it exists
+        if ( array_key_exists( 'X-Forwarded-For', $headers ) && filter_var( $headers['X-Forwarded-For'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) {
 
-      $the_ip = $headers['X-Forwarded-For'];
+          $the_ip = $headers['X-Forwarded-For'];
 
-    } elseif ( array_key_exists( 'HTTP_X_FORWARDED_FOR', $headers ) && filter_var( $headers['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 )
-    ) {
+        } elseif ( array_key_exists( 'HTTP_X_FORWARDED_FOR', $headers ) && filter_var( $headers['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 )
+        ) {
 
-      $the_ip = $headers['HTTP_X_FORWARDED_FOR'];
+          $the_ip = $headers['HTTP_X_FORWARDED_FOR'];
 
-    } else {
-      
-      $the_ip = filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 );
+        } else {
+          
+          $the_ip = filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 );
 
-    }
+        }
 
-    return $the_ip;
+        return $the_ip;
 
-  }
+      }
 
 
 

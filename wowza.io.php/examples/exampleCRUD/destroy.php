@@ -4,11 +4,13 @@
 //    email: carloscamachoucv@gmail.com
 //    created: November 2015
 
+
 	require 'database.php';
 	require(dirname(dirname(dirname(__FILE__))).'/libs/wowza.php');
+    include("config.php");
 
-	$wowzaServerIP = "ss.wowza.io";
-	$wow = new Wowza($wowzaServerIP.":8087");
+	$wowzaServerIP = Conf::STREAMING_SERVER_IP;
+	$wow = new Wowza($wowzaServerIP.":".Conf::STREAMING_SERVER_PORT);
 
 	$id = 0;
 	
