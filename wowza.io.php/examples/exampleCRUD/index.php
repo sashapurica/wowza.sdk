@@ -41,15 +41,20 @@
                     		name TEXT,
                     		isSecured BOOLEAN)"
 					   );
- 
+ 						
+
 					   $sql = 'SELECT * FROM streams ORDER BY id DESC';
 	 				   foreach ($pdo->query($sql) as $row) {
 						   		echo '<tr>';
 							   	echo '<td>'. $row['id'] . '</td>';
 							   	echo '<td>'. $row['name'] . '</td>';
-							   	echo '<td><a href="player/index.php?appName='. $row['name'] . '">View link </a>   </td>';
+							   	$secured = 0;
+							   	if ($row['isSecured']){$secured =1;}
+							   	echo '<td><a href="player/index.php?appName='.$row['name'].'&secured='.$secured.'">View link </a>   </td>';
 							   	echo '<td><a href="webstreamer/encoder.html?appName='. $row['name'] . '">Stream link </a></td>';
-							   	echo '<td>'. $row['isSecured'] . '</td>';
+
+
+							   	echo '<td>'. $secured . '</td>';
 							   	echo '<td width=250>';
 							   	echo '<a class="btn" href="read.php?id='.$row['id'].'">Read</a>';
 							   	echo '&nbsp;';

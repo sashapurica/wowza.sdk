@@ -55,7 +55,7 @@
 					    <label class="control-label">Secured</label>
 					    <div class="controls">
 					      	<label class="checkbox">
-						     	<?php echo $data['isSecured'];?>
+						     	<?php if ($data['isSecured']){echo ("Yes");}else{echo ("No");}?>
 						    </label>
 					    </div>
 					  </div>
