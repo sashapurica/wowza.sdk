@@ -1,5 +1,5 @@
 # wowza.io (mocoloco)
-Wowza.io main repository..
+Wowza.io main repository
 
 ###Multiplatform SDK implementation for wowza APIs###
 wowza.io should work with most wowza standard installations.
@@ -42,5 +42,7 @@ carloscamachoucv@gmail.com
 
 This project is taking a lot of my time, so if you think this is worth enough you can just invite me for a beer or collaborate with the project, also if you think you need more features you can collaborate and ask for your feature.
 
-[Paypal link](https://www.paypal.me/carlosdcg/5)
+[Paypal Me](https://www.paypal.me/carlosdcg/5)
+or
+[Paypal link](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6AD6M7MA5JRTA)
 
