@@ -3,6 +3,9 @@
 //    author: Carlos Camacho
 //    email: carloscamachoucv@gmail.com
 //    created: November 2015
+
+include('config.php');
+
 ?>
 <!--
 	http://www.startutorial.com/articles/view/php-crud-tutorial-part-3
@@ -57,7 +60,7 @@
 							   	$secured = 0;
 							   	if ($row['isSecured']){$secured =1;}
 							   	echo '<td><a href="player/index.php?appName='.$row['name'].'&secured='.$secured.'">View link </a>   </td>';
-							   	echo '<td><a href="webstreamer/encoder.html?appName='. $row['name'] . '">Stream link </a></td>';
+							   	echo '<td><a href="webstreamer/encoder.html?appName='.$row['name'] .'&serverName='.Conf::STREAMING_SERVER_IP.'&serverPort='.Conf::STREAMING_SERVER_DELIVERY_PORT.'">Stream link </a></td>';
 
 
 							   	echo '<td>'. $secured . '</td>';

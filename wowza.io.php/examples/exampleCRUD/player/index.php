@@ -36,12 +36,19 @@
       $wowzaSecureTokenEndTime = $wowzaTokenPrefix  ."endtime=". (time() + (7 * 24 * 60 * 60) );
       //usar $_SERVER['REMOTE_ADDR'] en vez de la 9.20
       //usa luego get_ip() y prueba.. si la ip no coincide no engancha.... xD
+      echo ("testip".get_ip()."----\n");
+      echo ("testip2".Conf::CLIENT_TEST_IP."----\n");  
+          
       $auxIP=get_ip();
-      if ($auxIP=="127.0.0.1"){
-        $viewer_ip = Conf::CLIENT_TEST_IP;
-      }else{
-        $viewer_ip = $auxIP;
-      }
+      //if ($auxIP=="127.0.0.1"){
+      //  $viewer_ip = "127.0.0.1";
+        //$viewer_ip = Conf::CLIENT_TEST_IP;
+      //}else{
+      //  $viewer_ip = "127.0.0.1";
+      $viewer_ip = $auxIP;
+        //$viewer_ip = Conf::CLIENT_TEST_IP;
+      //}
+
       $hashstr = $wowzaContentPath ."?". $viewer_ip ."&". $wowzaSecureToken ."&". $wowzaCustomParameter ."&". $wowzaSecureTokenEndTime ."&". $wowzaSecureTokenStartTime;
 
       $hash = hash('sha256', $hashstr ,1);

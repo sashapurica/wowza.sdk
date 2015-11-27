@@ -23,7 +23,7 @@ package
 	//import flash.text.engine.TextElement;	
 	
 	
-	[SWF( width="940", height="880" )]
+	[SWF( width="1024", height="768" )]
 	public class encoder extends Sprite
 	{
 		private var metaText:TextField = new TextField();
@@ -110,9 +110,9 @@ package
 			ns_out = new NetStream( nc );
 
 
-			cam.setMode(320, 240, 20, false);
-			cam.setQuality(0, 100);
-			cam.setKeyFrameInterval(15);
+			cam.setMode(1024, 768, 30, false);
+			cam.setQuality(0, 90);
+			cam.setKeyFrameInterval(28);
 			
 
 			
@@ -138,7 +138,7 @@ package
 			var h264Settings:H264VideoStreamSettings = new H264VideoStreamSettings();
 			//Set encoding profile and level on h264Settings
 			//h264Settings.setProfileLevel( H264Profile.BASELINE, H264Level.LEVEL_3_1 );
-			h264Settings.setProfileLevel( H264Profile.BASELINE, H264Level.LEVEL_1_1 );
+			h264Settings.setProfileLevel( H264Profile.MAIN, H264Level.LEVEL_3_1 );
 
 			
 
