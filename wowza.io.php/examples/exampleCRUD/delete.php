@@ -9,8 +9,8 @@
 	require(dirname(dirname(dirname(__FILE__))).'/libs/wowza.php');
     include("config.php");
 
-	$wowzaServerIP = Conf::STREAMING_SERVER_IP;
-	$wow = new Wowza($wowzaServerIP.":".Conf::STREAMING_SERVER_PORT);
+	$wowzaServerIP = STREAMING_SERVER_IP;
+	$wow = new Wowza($wowzaServerIP.":".STREAMING_SERVER_PORT);
 
 	$id = 0;
 	
