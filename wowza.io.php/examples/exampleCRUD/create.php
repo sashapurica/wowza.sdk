@@ -5,13 +5,14 @@
 //    created: November 2015
 	
 
-	require 'database.php';
+	require("database.php");
 	require(dirname(dirname(dirname(__FILE__))).'/libs/wowza.php');
-	include('config.php');
-	
-	$wowzaServerIP = STREAMING_SERVER_IP;
+    require("config.php");
 
-	$wow = new Wowza($wowzaServerIP.":".STREAMING_SERVER_PORT);
+	$wowzaServerIP = STREAMING_SERVER_IP;
+	$wowzaServerPort = STREAMING_SERVER_PORT;
+
+	$wow = new Wowza($wowzaServerIP.":".$wowzaServerPort);
 
 	if ( !empty($_POST)) {
 		// keep track validation errors

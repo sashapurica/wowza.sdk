@@ -4,7 +4,7 @@
 //    email: carloscamachoucv@gmail.com
 //    created: November 2015
 
-include('config.php');
+    require("config.php");
 
 ?>
 <!--
