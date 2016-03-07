@@ -1,4 +1,4 @@
-# wowza.io (mocoloco)
+# wowza.io (    mocoloco ¯\_(ツ)_/¯    )
 Wowza.io main repository
 
 ###Multiplatform SDK implementation for wowza APIs###
