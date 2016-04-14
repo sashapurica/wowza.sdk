@@ -38,11 +38,11 @@ wowza.io uses the following projects/softwares without having any direct relatio
 Carlos Camacho
 carloscamachoucv@gmail.com
 
-###Donations / Invite me a beer###
+###Co-Authors###
+John Doe
+jdoe@jdoe.com
 
-This project is taking a lot of my time, so if you think this is worth enough you can just invite me for a beer or collaborate with the project, also if you think you need more features you can collaborate and ask for your feature.
+###Donations / Invite a beer###
 
-[Paypal Me](https://www.paypal.me/carlosdcg/5)
-or
-[Paypal link](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6AD6M7MA5JRTA)
+No donations needed at the moment, just collaborate!
 
