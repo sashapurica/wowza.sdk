@@ -1,11 +1,6 @@
-<!--
-    site: www.wowza.io
-    author: Carlos Camacho
-    email: carloscamachoucv@gmail.com
-    created: 12/11/2015
--->
-<!--
- * Copyright by wowza.io at http://www.wowza.io
+<?php 
+/**
+ *  Copyright by wowza.io at http://www.wowza.io
  *
  * This file is part of wowza.io SDK
  * 
@@ -23,9 +18,8 @@
  * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
--->
+ */
 
-<?php 
 //Si hay algun problema al visualizar el player, verificar las IPS del servidor y del cliente que se usan para generar el hash...
 
 

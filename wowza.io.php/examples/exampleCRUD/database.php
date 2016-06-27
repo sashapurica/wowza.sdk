@@ -1,8 +1,4 @@
 <?php
-//    site: www.wowza.io
-//    author: Carlos Camacho
-//    email: carloscamachoucv@gmail.com
-//    created: November 2015
 /**
  * Copyright by wowza.io at http://www.wowza.io
  *

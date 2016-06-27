@@ -1,10 +1,4 @@
 <?php
-
-//    site: www.wowza.io
-//    author: Carlos Camacho
-//    email: carloscamachoucv@gmail.com
-//    created: November 2015
-//    Use camelCase for variable names and method names....
 /**
  *  Copyright by wowza.io at http://www.wowza.io
  *
@@ -25,6 +19,8 @@
  *
  * @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
  */
+
+//    Use camelCase for variable names and method names....
 
 require(dirname(dirname(__FILE__)).'/includes/Mustache/Autoloader.php');
 Mustache_Autoloader::register();
