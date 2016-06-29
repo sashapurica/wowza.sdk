@@ -45,5 +45,3 @@ jdoe@jdoe.com
 ###Donations / Invite a beer###
 
 No donations needed at the moment, just collaborate!
-prueba
-

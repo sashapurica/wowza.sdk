@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Copyright by wowza.io at http://www.wowza.io
  *
  * This file is part of wowza.io SDK
@@ -19,7 +19,6 @@
  *
  * @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
  */
-
 
 require('../libs/wowza.php');
 

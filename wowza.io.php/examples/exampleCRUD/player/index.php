@@ -1,5 +1,5 @@
 <?php 
-/**
+/*
  *  Copyright by wowza.io at http://www.wowza.io
  *
  * This file is part of wowza.io SDK
